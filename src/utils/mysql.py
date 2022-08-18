@@ -40,6 +40,7 @@ class MYSQL:
 
         if connect:
             self.connect()
+            logger.info("connected")
 
     def connect(self):
         if self._mysql is None:

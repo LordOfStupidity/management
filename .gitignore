@@ -136,3 +136,5 @@ share/
 
 vscode/
 .idea/
+
+logs/

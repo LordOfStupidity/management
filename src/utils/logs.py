@@ -1,28 +1,34 @@
-import imp
+"""
+    @file logs.py
+    @author Yash (bloop104@gmail.com)
+    @date 8-August-2022
+    @version 1.0.0
+    
+    @brief Utility class to create a basic logger
+    
+    @copyright Copyright (c) 2022
+"""
+
 import logging
 import datetime
 
 import daiquiri
 import daiquiri.formatter
 
-logger = None
-
-
-def setup():
-    daiquiri.setup(
-        level=logging.DEBUG,
-        outputs=(
-            daiquiri.output.File("errors.log", level=logging.ERROR),
-            daiquiri.output.TimedRotatingFile(
-                "logs.log", level=logging.DEBUG, interval=datetime.timedelta(hours=1)
-            ),
-            daiquiri.output.Stream(
-                formatter=daiquiri.formatter.ColorFormatter(
-                    fmt="%(asctime)s [PID %(process)d] [%(levelname)s] "
-                    "%(name)s -> %(message)s"
-                )
-            ),
+daiquiri.setup(
+    level=logging.DEBUG,
+    outputs=(
+        daiquiri.output.File("logs/errors.log", level=logging.ERROR),
+        daiquiri.output.TimedRotatingFile(
+            "logs/logs.log", level=logging.DEBUG, interval=datetime.timedelta(hours=1)
         ),
-    )
+        daiquiri.output.Stream(
+            formatter=daiquiri.formatter.ColorFormatter(
+                fmt="%(asctime)s [PID %(process)d] [%(levelname)s] "
+                "%(name)s -> %(message)s"
+            )
+        ),
+    ),
+)
 
-    logger = daiquiri.getLogger(__name__)
+logger = daiquiri.getLogger(__name__)
