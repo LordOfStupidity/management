@@ -7,6 +7,7 @@ import daiquiri.formatter
 
 logger = None
 
+
 def setup():
     daiquiri.setup(
         level=logging.DEBUG,

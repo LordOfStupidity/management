@@ -9,13 +9,9 @@
     @copyright Copyright (c) 2022
 """
 
-from dataclasses import dataclass, replace
-from pickle import TRUE
-from re import S
 import string
-import os
 import mysql.connector
-from tokenize import group
+
 from utils.logs import logger
 from mysql.connector import errorcode
 
