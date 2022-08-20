@@ -1,13 +1,4 @@
-"""
-    @file logs.py
-    @author Yash (bloop104@gmail.com)
-    @date 8-August-2022
-    @version 1.0.0
-    
-    @brief Utility class to create a basic logger
-    
-    @copyright Copyright (c) 2022
-"""
+"""For logging"""
 
 import logging
 import datetime
